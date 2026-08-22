@@ -8,6 +8,7 @@ backend_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 if backend_dir not in sys.path:
     sys.path.insert(0, backend_dir)
 
+# pyrefly: ignore [missing-import]
 from app.main import app
 
 client = TestClient(app)

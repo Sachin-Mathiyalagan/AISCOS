@@ -9,9 +9,13 @@ backend_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 if backend_dir not in sys.path:
     sys.path.insert(0, backend_dir)
 
+# pyrefly: ignore [missing-import]
 from app.main import app
+# pyrefly: ignore [missing-import]
 from app.ai.waiting_time_model import waiting_time_predictor
+# pyrefly: ignore [missing-import]
 from app.ai.noshow_model import noshow_predictor
+# pyrefly: ignore [missing-import]
 from app.ai.clinical_rag import clinical_cds
 
 client = TestClient(app)

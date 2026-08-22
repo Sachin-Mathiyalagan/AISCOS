@@ -128,7 +128,7 @@ def generate_encounter_invoice(
         db=db,
         action="GENERATE_INVOICE",
         resource_type="Invoice",
-        resource_id=inv.invoice_number,
+        resource_id=str(inv.invoice_number),
         user_id=int(payload["sub"]),
         user_role=payload["role"],
         details={"invoice_number": inv.invoice_number, "total": inv.total_amount}
@@ -183,7 +183,7 @@ async def process_payment(
         db=db,
         action="RECORD_PAYMENT",
         resource_type="Payment",
-        resource_id=payment.payment_reference,
+        resource_id=str(payment.payment_reference),
         user_id=int(payload["sub"]),
         user_role=payload["role"],
         details={"amount": payment.amount, "method": payment.payment_method, "invoice": inv.invoice_number}

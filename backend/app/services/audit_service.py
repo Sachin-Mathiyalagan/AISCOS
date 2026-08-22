@@ -6,7 +6,7 @@ def log_audit_event(
     db: Session,
     action: str,
     resource_type: str,
-    resource_id: Optional[str] = None,
+    resource_id: Optional[Any] = None,
     user_id: Optional[int] = None,
     user_email: Optional[str] = None,
     user_role: Optional[str] = None,
