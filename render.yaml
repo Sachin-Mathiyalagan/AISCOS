@@ -3,9 +3,12 @@ services:
     name: aiscos-backend
     runtime: python
     plan: free
-    buildCommand: pip install -r backend/requirements.txt
-    startCommand: cd backend && python run.py
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
     envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.4
       - key: SECRET_KEY
         generateValue: true
       - key: DATABASE_URL
